@@ -14,9 +14,15 @@ namespace Quest
             //   the text of the challenge
             //   a correct answer
             //   a number of awesome points to gain or lose depending on the success of the challenge
+            Robe newRobe = new Robe
+            {
+                Color = new List<string> { "red", "blue", "green" },
+                Length = 42
+            };
             Console.Write("Please Enter Your Name: ");
             // Make a new "Adventurer" object using the "Adventurer" class
-            Adventurer theAdventurer = new Adventurer(Console.ReadLine());
+            Adventurer theAdventurer = new Adventurer(Console.ReadLine(), newRobe);
+            Console.WriteLine(theAdventurer.GetDescription());
             bool userContinue = true;
             while (userContinue)
             {
