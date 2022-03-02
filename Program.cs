@@ -19,9 +19,13 @@ namespace Quest
                 Color = new List<string> { "red", "blue", "green" },
                 Length = 42
             };
+            Hat newHat = new Hat
+            {
+                ShininessLevel = 5
+            };
             Console.Write("Please Enter Your Name: ");
             // Make a new "Adventurer" object using the "Adventurer" class
-            Adventurer theAdventurer = new Adventurer(Console.ReadLine(), newRobe);
+            Adventurer theAdventurer = new Adventurer(Console.ReadLine(), newRobe, newHat);
             Console.WriteLine(theAdventurer.GetDescription());
             bool userContinue = true;
             while (userContinue)
