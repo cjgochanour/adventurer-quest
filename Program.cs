@@ -31,6 +31,9 @@ namespace Quest
             Adventurer theAdventurer = new Adventurer(Console.ReadLine(), newRobe, newHat);
             Console.WriteLine(theAdventurer.GetDescription());
             bool userContinue = true;
+
+            int correctAnswers = 0;
+
             while (userContinue)
             {
                 Challenge twoPlusTwo = new Challenge("2 + 2?", 4, 10);
@@ -64,6 +67,8 @@ namespace Quest
                 int minAwesomeness = 0;
                 int maxAwesomeness = 100;
 
+                theAdventurer.Awesomeness += (correctAnswers * 10);
+
                 // A list of challenges for the Adventurer to complete
                 // Note we can use the List class here because have the line "using System.Collections.Generic;" at the top of the file.
                 List<Challenge> challenges = new List<Challenge>()
@@ -91,7 +96,16 @@ namespace Quest
 
                 foreach (int index in challengeSelections)
                 {
+                    int preChallengeAwesomeness = theAdventurer.Awesomeness;
                     challenges[index].RunChallenge(theAdventurer);
+                    if (preChallengeAwesomeness > theAdventurer.Awesomeness)
+                    {
+                        correctAnswers--;
+                    }
+                    else
+                    {
+                        correctAnswers++;
+                    }
                 }
 
                 // This code examines how Awesome the Adventurer is after completing the challenges
