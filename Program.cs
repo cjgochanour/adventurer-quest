@@ -14,6 +14,9 @@ namespace Quest
             //   the text of the challenge
             //   a correct answer
             //   a number of awesome points to gain or lose depending on the success of the challenge
+
+            Prize bigTrophy = new Prize("A very large trophy");
+
             Robe newRobe = new Robe
             {
                 Color = new List<string> { "red", "blue", "green" },
@@ -89,6 +92,7 @@ namespace Quest
                 {
                     Console.WriteLine("I guess you did...ok? ...sorta. Still, you should get out of my sight.");
                 }
+                bigTrophy.ShowPrize(theAdventurer);
                 Console.WriteLine("Continue? (y/n): ");
                 string userChosenContinue = Console.ReadLine().ToLower();
                 if (userChosenContinue == "n")
