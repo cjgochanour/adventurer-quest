@@ -51,6 +51,9 @@ namespace Quest
 ",
                     4, 20
                 );
+                Challenge chiTrip = new Challenge("How many miles is it from Chicago to New York?", 796, 30);
+                Challenge abbaAlbums = new Challenge("How many studio albums has the swedish pop group ABBA released?", 9, 25);
+                Challenge midwestStates = new Challenge("How many states make up the Midwestern United States?", 12, 20);
 
                 // "Awesomeness" is like our Adventurer's current "score"
                 // A higher Awesomeness is better
@@ -69,13 +72,26 @@ namespace Quest
                 theAnswer,
                 whatSecond,
                 guessRandom,
-                favoriteBeatle
+                favoriteBeatle,
+                chiTrip,
+                abbaAlbums,
+                midwestStates
             };
 
-                // Loop through all the challenges and subject the Adventurer to them
-                foreach (Challenge challenge in challenges)
+                List<int> challengeSelections = new List<int>();
+
+                while (challengeSelections.Count < 5)
                 {
-                    challenge.RunChallenge(theAdventurer);
+                    int randomIndexSelection = new Random().Next(0, challenges.Count);
+                    if (!challengeSelections.Contains(randomIndexSelection))
+                    {
+                        challengeSelections.Add(randomIndexSelection);
+                    }
+                }
+
+                foreach (int index in challengeSelections)
+                {
+                    challenges[index].RunChallenge(theAdventurer);
                 }
 
                 // This code examines how Awesome the Adventurer is after completing the challenges
